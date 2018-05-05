@@ -1,0 +1,25 @@
+// Copyright 2014 Google Inc. All rights reserved.
+//
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
+
+{namespace u2fdemo}
+
+/**
+ * Says hello to the world.
+ */
+{template .admin}
+<html>
+  <head>  
+    <link rel="stylesheet" type="text/css" href="/css/u2fdemo.css">
+  </head>
+  <body>
+  {call .sandbar data="all"/}
+  <div id='main'>
+    <!-- you can put commands here for admins to do -->
+    <form action="/admin?command=someAdminCommand" method="POST">
+    </form>
+  </body>
+</html>
+{/template}

@@ -1,0 +1,55 @@
+// Copyright 2014 Google Inc. All rights reserved.
+//
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
+
+{namespace u2fdemo}
+
+/**
+ * Template for U2F card
+ */
+{template .cardTemplate}
+<template id="cardTemplate">
+  <div class="card">
+     <div class="cardTitle">
+       <span>U2F Authenticator</span>
+     </div>
+     <div class="cardContent">
+       <div class="issuer"></div> 
+       <div class="enrollmentTime">Enrolled on&nbsp;
+         <span class="enrollmentTimeValue"></span>
+       </div>
+       <div class="transports">Supported transports:&nbsp;
+         <span class="transportsValue">None specified</span>
+       </div>
+       <div class="androidAttestationLabel">Android Attestation <button class="toggleAttestationButton">show</button><br/></div>
+       <div class="androidAttestation">
+         <ul>
+           <li><span class="label">Cert Chain Verified: </span><span class="chainVerified">false</span><br/> 
+           <li><span class="label">Keymaster Version: </span><span class="keymasterVersion">none</span><br/>
+           <li><span class="label">Attestation Challenge: </span><span class="challenge">none</span><br/>
+           <li><span class="label">Software Enforced: </span>
+           <div class="softwareEnforced">
+             <ul>
+               <li><span class="label">Purpose: </span> <span class="purpose">none</span>
+               <li><span class="label">Algorithm: </span> <span class="algorithm">none</span>
+               <li><span class="label">Key Size: </span> <span class="keysize">none</span>
+               <li><span class="label">Block Mode: </span> <span class="blockmode">none</span>
+             </ul>
+           </div>
+           <li><span class="label">TEE Enforced: </span>
+              <span class="teeEnforced"></span>
+         </ul>
+       </div>
+       <div class="cardLabel">key handle</div>
+       <div class="keyHandle"></div>
+       <div class="cardLabel">public key</div>
+       <div class="publicKey"></div>
+     </div>
+     <div class="buttonBar">
+       <div class="removeCardButton" tabindex="0" style="-webkit-user-select: none;">Delete</div>
+     </div>
+  </div>
+</template>
+{/template}

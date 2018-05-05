@@ -1,0 +1,60 @@
+// Copyright 2014 Google Inc. All rights reserved.
+//
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
+
+{namespace u2fdemo}
+
+/** 
+ * Says hello to the world.
+ * @param username the name of the person 
+ */
+{template .main}
+<html>
+  <head>    
+  <link href="/jquery/css/custom-theme/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+  <script src="/jquery/js/jquery-1.10.2.js"></script>
+  <script src="/jquery/js/jquery-ui-1.10.4.custom.js"></script>
+
+  <script type="text/javascript" src="/js/u2f-api.js"></script>
+  <script type="text/javascript" src="/js/u2fdemo.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/u2fdemo.css">
+  
+  </head>
+  <body onload="fetchAllUserTokens();">
+  {call .cardTemplate data="all"/}
+  {call .sandbar data="all"/}
+  
+  <div id='sidebar'>
+    <div id="addToken" style="-webkit-user-select: none;">Register U2F Security Key</div>
+    <br>
+    <label><input id="reregistration" type="checkbox" />Please Check for Multiple Registrations</label> 
+    <div id="testAuth" style="-webkit-user-select: none;">Authenticate U2F Security Key</div>
+    <div id="downloadCrx">
+      <a href="https://chrome.google.com/webstore/detail/fido-u2f-universal-2nd-fa/pfboblefjcgdjicmnffhdgionmgcdmne">Fido U2F Google Chrome Extension</a>
+      <a href="https://cs.rit.edu/~smg6512/week6.html">Project Homepage</a>
+    </div>
+  </div>
+  <div id='main'>
+    
+  
+    <h1 align="center" style="
+    font-size:  23;
+    color:  lightseagreen;
+    font - font-weight:;
+    font-weight: bold;
+">Details of Registered U2F Security Key for: {$username}:</h1>
+
+    <div id="tokens">
+    </div>
+    
+    <div class="spacer" style="height: 50px;"></div>    
+  </div>
+  <script>
+    $('#addToken').button().click(sendBeginEnrollRequest); 
+    $('#testAuth').button().click(sendBeginSignRequest); 
+  </script>
+  </body>
+</html>
+{/template}
